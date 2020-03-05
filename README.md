@@ -42,6 +42,7 @@ version: '2'
 services:
   cryptclone:
     image: derkades/cryptclone
+    command: sync
     volumes:
       - '/home/user/Documents:/data/documents:ro'
       - '/home/user/Downloads:/data/downloads:ro'
