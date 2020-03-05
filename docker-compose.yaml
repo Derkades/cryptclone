@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+
+  sync:
+    # image: derkades/cryptclone
+    build: .
+    volumes: ['./data-sync:/data/documents:ro']
+    command: sync
+    environment:
+      REMOTE_URL: http://server:80
+      REMOTE_USER: test
+      REMOTE_PASS: test
+      ENCRYPT_PASS: test
+
+  restore:
+    # image: derkades/cryptclone
+    build: .
+    # You can specify a subdirectory here if you only want to
+    # restore a subset of backed up data.
+    volumes: ['./data-restore:/data']
+    command: restore
+    environment:
+      REMOTE_URL: http://server:80
+      REMOTE_USER: test
+      REMOTE_PASS: test
+      ENCRYPT_PASS: test
+
+  server:
+    image: derkades/webdav
+    volumes: ['./data-server:/data']
+    ports: ['8080:80']
+    environment:
+      USERNAME: test
+      PASSWORD: test
