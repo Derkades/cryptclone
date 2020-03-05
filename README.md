@@ -48,6 +48,7 @@ services:
       - '/home/user/Downloads:/data/downloads:ro'
       - '/opt/Application:/data/application:ro'
     environment:
+      REMOTE_URL: http://123.45.67.89:80
       REMOTE_USER: user
       REMOTE_PASS: password
       ENCRYPT_PASS: verysecretpassword
