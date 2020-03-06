@@ -86,22 +86,27 @@ Create a new file in your cron directory (probably in `/etc/cron.d`). Yes, on th
 0 2 * * * root docker-compose -f /path/to/docker-compose.yaml run --rm cryptclone > /path/to/cryptclone.log
 ```
 
-Feel free to customize the time, when doing so, an [online schedule preview tool](https://crontab.guru) may be useful.
+Make sure the cron file has a newline at the end! Feel free to customize the time, when doing so, an [online schedule preview tool](https://crontab.guru) may be useful.
 
 ## Extra options
 
 ### Bandwidth limit
+
 Set bandwidth limit. For scheduling, set a whitespace separated list of times with speeds in kilobytes/s. (note that internet speed is usually measured in bits instead of bytes per second, 8 times larger!)
+
 ```yaml
 BWLIMIT: '512' # Limit to 4 Mb/s
 BWLIMIT: '2M' # Limit to 16 Mb/s
 BWLIMIT: '06:00,512 01:00,1M' # 4 Mb/s during the day, 8Mb/s after 1AM
 BWLIMIT: 'Mon-00:00,512 Fri-23:59,off Sat-09:00,1M Sun-20:00,off"
 ```
+
 For more info, see the [rclone documentation](https://rclone.org/docs/#bwlimit-bandwidth-spec).
 
 ### Transfers
+
 Set concurrent transfers. Default is `4`.
+
 ```yaml
 TRANSFERS: 4
 ```
