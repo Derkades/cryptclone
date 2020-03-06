@@ -83,7 +83,7 @@ services:
 Create a new file in your cron directory (probably in `/etc/cron.d`). Yes, on the host system, fight me. For daily at 2AM:
 
 ```cron
-0 2 * * * root docker-compose -f /path/to/docker-compose.yaml run --rm cryptclone
+0 2 * * * root docker-compose -f /path/to/docker-compose.yaml run --rm cryptclone > /path/to/cryptclone.log
 ```
 
 Feel free to customize the time, when doing so, an [online schedule preview tool](https://crontab.guru) may be useful.
