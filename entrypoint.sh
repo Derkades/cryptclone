@@ -19,10 +19,10 @@ rclone config create crypt \
 
 if [ "$1" == "sync" ]
 then
-    rclone sync --progress /data crypt:
+    rclone sync --progress --bwlimit "$BWLIMIT" --transfers "$TRANSFERS" /data crypt:
 elif [ "$1" == "restore" ]
 then
-    rclone copy --progress crypt: /data
+    rclone copy --progress --bwlimit "$BWLIMIT" --transfers "$TRANSFERS" crypt: /data
 else
     echo "Unsupported command '$1'"
     exit 1
