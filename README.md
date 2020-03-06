@@ -59,6 +59,25 @@ services:
 * To start a backup, run `docker-compose run --rm cryptclone`
 * If you already have a docker-compose file with other services, you may be tempted to add it there. I do not recommend doing this, you may accidentally start the container when doing `docker-compose up -d` to start all your containers.
 
+### Restore
+
+```yaml
+version: '2'
+services:
+  cryptclone:
+    image: derkades/cryptclone
+    command: restore
+    volumes:
+      - '/mnt/restore:/data/documents'
+    environment:
+      REMOTE_URL: http://123.45.67.89:80
+      REMOTE_USER: user
+      REMOTE_PASS: password
+      ENCRYPT_PASS: verysecretpassword
+```
+
+* Restore `/data` or specify a subdirectory to only restore a subset of data.
+
 ## Cron
 
 Create a new file in your cron directory (probably in `/etc/cron.d`). Yes, on the host system, fight me. For daily at 2AM:
