@@ -19,15 +19,13 @@ rclone config create crypt \
     "password" "$ENCRYPT_PASS" \
     > /dev/null
 
-TAGS=""
+TAGS="--bwlimit $BWLIMIT"
+TAGS="$TAGS --transfers $TRANSFERS"
 
 if [ "$PROGRESS" == "true" ]
 then
-    TAGS="--progress"
+    TAGS="$TAGS --progress"
 fi
-
-TAGS="$TAGS --bwlimit $BWLIMIT"
-TAGS="$TAGS --transfers $TRANSFERS"
 
 echo "Starting backup at `date`"
 echo "  remote: $REMOTE_URL"
