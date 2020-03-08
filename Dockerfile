@@ -8,6 +8,8 @@ ADD entrypoint.sh /entrypoint.sh
 ENV BWLIMIT="0"
 # https://rclone.org/docs/#transfers-n
 ENV TRANSFERS="4"
+# Disable if redirecting log to a file
+ENV PROGRESS="true"
 
 VOLUME [ "/data" ]
 
