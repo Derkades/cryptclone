@@ -34,8 +34,6 @@ echo "  remote: $REMOTE_URL"
 echo "  options: $TAGS"
 
 echo ""
-echo "----------------------------------"
-echo ""
 
 if [ "$1" == "sync" ]
 then
@@ -48,8 +46,6 @@ else
     exit 1
 fi
 
-echo ""
-echo "----------------------------------"
 echo ""
 
 echo "Backup finished at `date`"
