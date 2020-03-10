@@ -52,6 +52,7 @@ services:
       REMOTE_USER: user
       REMOTE_PASS: password
       ENCRYPT_PASS: verysecretpassword
+      PROGRESS: 'true'
 ```
 
 * Add as many volumes as you want to the volumes section. I recommend adding `:ro` (read only) to the end, so you can be sure that the random docker container you just downloaded doesn't destroy your files.
@@ -74,6 +75,7 @@ services:
       REMOTE_USER: user
       REMOTE_PASS: password
       ENCRYPT_PASS: verysecretpassword
+      PROGRESS: 'true'
 ```
 
 * Restore `/data` or specify a subdirectory to only restore a subset of data.
@@ -87,6 +89,8 @@ Create a new file in your cron directory (probably in `/etc/cron.d`). Yes, on th
 ```
 
 Make sure the cron file has a newline at the end! Feel free to customize the time, when doing so, an [online schedule preview tool](https://crontab.guru) may be useful.
+
+When redirecting the output to a file, you probably want to turn off (remove) the `PROGRESS` environment variable so the file doesn't get huge.
 
 ## Extra options
 
