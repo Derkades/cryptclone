@@ -7,7 +7,7 @@ Are you looking for an easy way to store a copy of your important data on anothe
 * Can tolerate bad internet connections, it will resume where it left off if it is interrupted
 * Encrypts files client-side before uploading them to the remote. File and directory names are encrypted as well, but the original structure is kept.
 * Restore everything or specific subdirectories
-* Arm support for server-side (I'm working on supporting arm for client side as well). Add `:arm` after the image name.
+* ARM support: add `:arm` after the image name.
 
 ## Installation
 
