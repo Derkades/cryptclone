@@ -12,6 +12,8 @@ services:
       REMOTE_USER: test
       REMOTE_PASS: test
       ENCRYPT_PASS: test
+      BWLIMIT: "06:00,1M 01:00,2M"
+      PROGRESS: 'true'
 
   restore:
     # image: derkades/cryptclone

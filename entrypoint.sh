@@ -19,30 +19,41 @@ rclone config create crypt \
     "password" "$ENCRYPT_PASS" \
     > /dev/null
 
-TAGS="--bwlimit $BWLIMIT"
-TAGS="$TAGS --transfers $TRANSFERS"
-
 if [ "$PROGRESS" == "true" ]
 then
-    TAGS="$TAGS --progress"
+    PROGRESS="--progress"
+else
+    PROGRESS=""
 fi
-
-echo "Starting backup at `date`"
-echo "  remote: $REMOTE_URL"
-echo "  options: $TAGS"
-
-echo ""
 
 if [ "$1" == "sync" ]
 then
-    rclone sync $TAGS /data crypt:
+    CMD="sync"
+    SRC="/data"
+    DST="crypt:"
 elif [ "$1" == "restore" ]
 then
-    rclone copy $TAGS crypt: /data
+    if [ "$CHECK_RESTORE_DEST_EMPTY" == "true" ] && [ "`find /data -maxdepth 0 -empty`" == "" ]
+    then
+        echo "Restore directory not empty, aborting."
+        echo "If you know what you are doing, set environment variable CHECK_RESTORE_DEST_EMPTY to 'false' to override."
+        exit 1
+    fi
+
+    CMD="copy"
+    SRC="crypt:"
+    DST="/data"
 else
     echo "Unsupported command '$1'"
     exit 1
 fi
+
+echo "Starting backup at `date`"
+echo "  remote: $REMOTE_URL"
+
+echo ""
+
+rclone "$CMD" $PROGRESS --bwlimit "$BWLIMIT" --transfers "$TRANSFERS" "$SRC" "$DST"
 
 echo ""
 

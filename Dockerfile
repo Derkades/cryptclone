@@ -9,7 +9,9 @@ ENV BWLIMIT="0"
 # https://rclone.org/docs/#transfers-n
 ENV TRANSFERS="4"
 # Disable if redirecting log to a file
-ENV PROGRESS="true"
+ENV PROGRESS="false"
+
+ENV CHECK_RESTORE_DEST_EMPTY="true"
 
 VOLUME [ "/data" ]
 
