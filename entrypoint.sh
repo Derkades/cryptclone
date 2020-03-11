@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 mkdir -p /root/.config/rclone
 touch /root/.config/rclone/rclone.conf
@@ -33,7 +33,7 @@ then
     DST="crypt:"
 elif [ "$1" == "restore" ]
 then
-    if [ "$CHECK_RESTORE_DEST_EMPTY" == "true" ] && [ "`find /data -maxdepth 0 -empty`" == "" ]
+    if [ "$CHECK_RESTORE_DEST_EMPTY" == "true" ] && [ "`ls -1A /data`" != "" ]
     then
         echo "Restore directory not empty, aborting."
         echo "If you know what you are doing, set environment variable CHECK_RESTORE_DEST_EMPTY to 'false' to override."
