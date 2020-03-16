@@ -1,23 +1,36 @@
 #!/bin/bash
 
+set -e
+
 mkdir -p /root/.config/rclone
 touch /root/.config/rclone/rclone.conf
 
-rclone config create webdav \
-    "webdav" \
-    "url" "$REMOTE_URL" \
-    "vendor" "other" \
-    "user" "$REMOTE_USER" \
-    "pass" "$REMOTE_PASS" \
-    > /dev/null
+if [ -f "/rclone.conf" ]
+then
+    echo "Not creating backend because /rclone.conf exists"
+else
+    rclone config create backend \
+        "webdav" \
+        "url" "$REMOTE_URL" \
+        "vendor" "other" \
+        "user" "$REMOTE_USER" \
+        "pass" "$REMOTE_PASS" \
+        > /dev/null
+fi
 
 rclone config create crypt \
     "crypt" \
-    "remote" "webdav:cryptclone" \
+    "remote" "backend:$REMOTE_FOLDER" \
     "filename_encryption" "standard" \
     "directory_name_encryption" "true" \
     "password" "$ENCRYPT_PASS" \
     > /dev/null
+
+# Append custom config
+if [ -f "/rclone.conf" ]
+then
+    cat /rclone.conf >> /root/.config/rclone/rclone.conf
+fi
 
 if [ "$PROGRESS" == "true" ]
 then

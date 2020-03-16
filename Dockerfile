@@ -13,6 +13,8 @@ ENV PROGRESS="false"
 
 ENV CHECK_RESTORE_DEST_EMPTY="true"
 
+ENV REMOTE_FOLDER="cryptclone"
+
 VOLUME [ "/data" ]
 
 ENTRYPOINT [ "/bin/bash", "/entrypoint.sh" ]
