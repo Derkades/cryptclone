@@ -1,6 +1,6 @@
 ARG RCLONE_TAG=latest
 
-FROM derkades/rclone:${RCLONE_TAG}
+FROM derkades/rclone-alpine:${RCLONE_TAG}
 
 ADD entrypoint.sh /entrypoint.sh
 
@@ -17,4 +17,4 @@ ENV REMOTE_FOLDER="cryptclone"
 
 VOLUME [ "/data" ]
 
-ENTRYPOINT [ "/bin/bash", "/entrypoint.sh" ]
+ENTRYPOINT [ "/bin/sh", "/entrypoint.sh" ]
