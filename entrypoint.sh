@@ -62,7 +62,7 @@ else
 fi
 
 echo "Starting backup at `date`"
-echo "  remote: $REMOTE_URL"
+# echo "  remote: $REMOTE_URL"
 
 echo ""
 
