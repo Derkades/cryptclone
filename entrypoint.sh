@@ -62,11 +62,10 @@ else
 fi
 
 echo "Starting backup at `date`"
-# echo "  remote: $REMOTE_URL"
 
 echo ""
 
-rclone "$CMD" $PROGRESS --bwlimit "$BWLIMIT" --transfers "$TRANSFERS" "$SRC" "$DST"
+rclone "$CMD" $PROGRESS --bwlimit "$BWLIMIT" --transfers "$TRANSFERS" $RCLONE_PARAMS "$SRC" "$DST"
 
 echo ""
 

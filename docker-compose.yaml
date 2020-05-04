@@ -10,7 +10,7 @@ services:
     environment:
       REMOTE_URL: http://server:80
       REMOTE_USER: test
-      REMOTE_PASS: test
+      REMOTE_PASS: test2
       ENCRYPT_PASS: test
       BWLIMIT: "06:00,1M 01:00,2M"
       PROGRESS: 'true'
@@ -25,7 +25,7 @@ services:
     environment:
       REMOTE_URL: http://server:80
       REMOTE_USER: test
-      REMOTE_PASS: test
+      REMOTE_PASS: test2
       ENCRYPT_PASS: test
 
   server:
@@ -34,4 +34,4 @@ services:
     ports: ['8080:80']
     environment:
       USERNAME: test
-      PASSWORD: test
+      PASSWORD: test2

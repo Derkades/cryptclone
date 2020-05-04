@@ -10,10 +10,9 @@ ENV BWLIMIT="0"
 ENV TRANSFERS="4"
 # Disable if redirecting log to a file
 ENV PROGRESS="false"
-
 ENV CHECK_RESTORE_DEST_EMPTY="true"
-
 ENV REMOTE_FOLDER="cryptclone"
+ENV RCLONE_PARAMS=""
 
 VOLUME [ "/data" ]
 
