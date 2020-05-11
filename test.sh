@@ -15,9 +15,6 @@ echo "some test data" > data-sync/test.txt
 
 docker-compose run sync
 
-# mkdir data-restore
-# touch data-restore/test
-
 docker-compose run restore
 
 DATA=`cat data-restore/documents/test.txt 2>/dev/null`
