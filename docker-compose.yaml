@@ -31,7 +31,7 @@ services:
   server:
     image: derkades/webdav
     volumes: ['./data-server:/data']
-    ports: ['8080:80']
+    # ports: ['8080:80']
     environment:
       USERNAME: test
       PASSWORD: test2
