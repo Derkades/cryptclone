@@ -56,6 +56,10 @@ then
     CMD="copy"
     SRC="crypt:"
     DST="/data"
+elif [ "$1" == "dedupe" ]
+then
+    exec rclone dedupe crypt:
+    exit 0
 else
     echo "Unsupported command '$1'"
     exit 1
@@ -65,7 +69,7 @@ echo "Starting backup at `date`"
 
 echo ""
 
-rclone "$CMD" $PROGRESS --bwlimit "$BWLIMIT" --transfers "$TRANSFERS" $RCLONE_PARAMS "$SRC" "$DST"
+exec rclone "$CMD" $PROGRESS --bwlimit "$BWLIMIT" --transfers "$TRANSFERS" $RCLONE_OPTIONS "$SRC" "$DST"
 
 echo ""
 
