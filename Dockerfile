@@ -1,18 +1,17 @@
-ARG RCLONE_TAG=latest
-
-FROM derkades/rclone-alpine:${RCLONE_TAG}
+FROM derkades/rclone-alpine
 
 ADD entrypoint.sh /entrypoint.sh
 
 # https://rclone.org/docs/#bwlimit-bandwidth-spec
 ENV BWLIMIT="0"
-# https://rclone.org/docs/#transfers-n
+# Deprecated, use --transfers in RCLONE_OPTIONS
 ENV TRANSFERS="4"
-# Disable if redirecting log to a file
-ENV PROGRESS="false"
+ENV PROGRESS="true"
 ENV CHECK_RESTORE_DEST_EMPTY="true"
 ENV REMOTE_FOLDER="cryptclone"
+# Deprecated, use RCLONE_OPTIONS
 ENV RCLONE_PARAMS=""
+ENV RCLONE_OPTIONS=${RCLONE_PARAMS}
 
 VOLUME [ "/data" ]
 

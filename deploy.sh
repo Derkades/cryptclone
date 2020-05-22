@@ -1,4 +1,5 @@
 set -e
-docker build -t derkades/cryptclone:latest .
 ./test.sh
-docker push derkades/cryptclone:latest
+
+export DOCKER_CLI_EXPERIMENTAL=enabled
+docker buildx build -t derkades/cryptclone --platform=linux/arm,linux/arm64,linux/amd64 . --push

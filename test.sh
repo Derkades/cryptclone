@@ -2,11 +2,11 @@
 
 set -x
 
+docker build -t derkades/cryptclone --no-cache .
+
 sudo rm -rf data-restore data-server data-sync
 
 sudo docker-compose rm -sf
-
-sudo docker-compose build
 sudo docker-compose up -d server
 sudo chown -R 33:33 data-server
 

@@ -3,8 +3,7 @@ version: '2'
 services:
 
   sync:
-    # image: derkades/cryptclone
-    build: .
+    image: derkades/cryptclone
     volumes: ['./data-sync:/data/documents:ro']
     command: sync
     environment:
@@ -16,8 +15,7 @@ services:
       PROGRESS: 'true'
 
   restore:
-    # image: derkades/cryptclone
-    build: .
+    image: derkades/cryptclone
     # You can specify a subdirectory here if you only want to
     # restore a subset of backed up data.
     volumes: ['./data-restore:/data']
