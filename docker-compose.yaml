@@ -13,6 +13,18 @@ services:
       ENCRYPT_PASS: test
       BWLIMIT: "06:00,1M 01:00,2M"
 
+  sync_interactive:
+    image: derkades/cryptclone
+    volumes: ['./data-sync:/data/documents:ro']
+    command: sync
+    tty: true
+    environment:
+      REMOTE_URL: http://server:80
+      REMOTE_USER: test
+      REMOTE_PASS: test2
+      ENCRYPT_PASS: test
+      INTERACTIVE_PROGRESS: 'true'
+
   restore:
     image: derkades/cryptclone
     # You can specify a subdirectory here if you only want to
