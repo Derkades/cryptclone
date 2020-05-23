@@ -32,11 +32,11 @@ then
     cat /rclone.conf >> /root/.config/rclone/rclone.conf
 fi
 
-if [ "$PROGRESS" == "true" ]
+if [ "$INTERACTIVE_PROGRESS" == "true" ]
 then
     PROGRESS="--progress"
 else
-    PROGRESS=""
+    PROGRESS="--stats-log-level NOTICE --stats=1m --stats-one-line "
 fi
 
 if [ "$1" == "sync" ]

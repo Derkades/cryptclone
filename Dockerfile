@@ -6,7 +6,7 @@ ADD entrypoint.sh /entrypoint.sh
 ENV BWLIMIT="0"
 # Deprecated, use --transfers in RCLONE_OPTIONS
 ENV TRANSFERS="4"
-ENV PROGRESS="true"
+ENV INTERACTIVE_PROGRESS="false"
 ENV CHECK_RESTORE_DEST_EMPTY="true"
 ENV REMOTE_FOLDER="cryptclone"
 # Deprecated, use RCLONE_OPTIONS
