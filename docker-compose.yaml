@@ -27,9 +27,8 @@ services:
 
   restore:
     image: derkades/cryptclone
-    # You can specify a subdirectory here if you only want to
-    # restore a subset of backed up data.
     volumes: ['./data-restore:/data']
+    # To restore a subset of data, set RESTORE_DIR, e.g. RESTORE_DIR=documents/development
     command: restore
     environment:
       REMOTE_URL: http://server:80

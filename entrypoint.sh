@@ -54,7 +54,7 @@ then
     fi
 
     CMD="copy"
-    SRC="crypt:"
+    SRC="crypt:$RESTORE_DIR"
     DST="/data"
 elif [ "$1" == "dedupe" ]
 then
