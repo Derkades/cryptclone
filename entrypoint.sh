@@ -69,7 +69,7 @@ echo "Starting backup at `date`"
 
 echo ""
 
-(set -x; exec rclone "$CMD" $PROGRESS --bwlimit "$BWLIMIT" --transfers "$TRANSFERS" $RCLONE_OPTIONS "$SRC" "$DST")
+(set -x; exec rclone "$CMD" $PROGRESS --bwlimit "$BWLIMIT" $RCLONE_OPTIONS "$SRC" "$DST")
 
 echo ""
 
