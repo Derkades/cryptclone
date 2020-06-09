@@ -143,6 +143,15 @@ environment:
   RCLONE_OPTIONS: '--transfers 2 --order-by size,asc --local-no-check-updated --checkers 10 --exclude some/directory/**'
 ```
 
+## Healthchecks.io
+
+Ping healthchecks system if backup successfully completed
+
+```yaml
+environment:
+  HEALTHCHECKS_URL: https://healthchecks.derkad.es/ping/23123e2c-c405-4c3d-8321-292fd5f828d2
+```
+
 ## Troubleshooting
 
 * If you are getting `401 Unauthorized` errors and you are sure the username/password is correct, set a shorter password. I haven't looked into this, but apparently either nginx, htpasswd or rclone seems to have issues with long passwords.
