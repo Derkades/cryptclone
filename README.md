@@ -149,7 +149,7 @@ Ping healthchecks system if backup successfully completed
 
 ```yaml
 environment:
-  HEALTHCHECKS_URL: https://healthchecks.derkad.es/ping/23123e2c-c405-4c3d-8321-292fd5f828d2
+  HEALTHCHECKS_URL: 'https://healthchecks.derkad.es/ping/23123e2c-c405-4c3d-8321-292fd5f828d2'
 ```
 
 ## Troubleshooting
