@@ -77,5 +77,5 @@ echo "Backup finished at `date`"
 
 if [ "$HEALTHCHECKS_URL" != "" ]
 then
-    curl -fsS --retry 3 "$HEALTHCHECKS_URL" > /dev/null
+    wget -q -O /dev/null "$HEALTHCHECKS_URL"
 fi
