@@ -10,6 +10,4 @@ ENV REMOTE_FOLDER="cryptclone"
 ENV RCLONE_OPTIONS=""
 ENV RESTORE_DIR=""
 
-VOLUME [ "/data" ]
-
 ENTRYPOINT [ "/bin/sh", "/entrypoint.sh" ]
