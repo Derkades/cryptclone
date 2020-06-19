@@ -61,7 +61,7 @@ services:
     image: derkades/cryptclone
     command: restore
     volumes:
-      - '/mnt/restore:/data/documents'
+      - '/mnt/restore:/data'
     environment:
       REMOTE_URL: http://123.45.67.89:80
       REMOTE_USER: user
@@ -73,7 +73,7 @@ services:
 docker-compose run --rm restore
 ```
 
-* Restore `/data` or specify a subdirectory to only restore a subset of data.
+* To only restore a specific directory (for example `/data/documents/2019`) set `RESTORE_DIR="documents/2019"`
 
 ## Monitoring
 
